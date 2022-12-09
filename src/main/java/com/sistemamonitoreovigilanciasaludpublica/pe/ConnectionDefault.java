@@ -12,24 +12,21 @@ public class ConnectionDefault {
     private final String USER="freedb_mquinam";
     private final String PASS="PfV2j?HGm56JJW%";
     
-    public void openConnection() {
+    public Connection openConnection() {
         
         Connection connect = null;
         
         try{
             
             Class.forName("com.mysql.cj.jdbc.Driver");
-            connect=(Connection) DriverManager.getConnection(URL,USER,PASS);
-            
-            if(connect!=null){
-                System.out.println("Conexión exitosa");            
-            }else{
-                System.out.println("Conexión Fallida");            
-            }
+            connect=(Connection) DriverManager.getConnection(URL,USER,PASS);    
+            System.out.println("Conexión exitosa");            
+            return connect;
             
         }catch(ClassNotFoundException | SQLException ex){
             System.out.println("error "+ex.getMessage());
         }
+        return null;
         
     }    
     
