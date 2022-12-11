@@ -62,7 +62,15 @@ public class Principal extends javax.swing.JFrame {
             new String [] {
                 "Año", "Departamento", "Sexo", "Enfermedad", "N° Defunciones", "Tasa Bruta", "Tasa Ajuste", "Error", "Lim. Inferior", "Lim. Superior", "Cluster"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(tblDatos);
 
         jMenu1.setText("Archivo");
@@ -179,7 +187,8 @@ public class Principal extends javax.swing.JFrame {
         defaultTableModel = (DefaultTableModel) tblDatos.getModel();
         MortalityRateDAO mortalityRateDAO = new MortalityRateDAO();
         
-        mortalityRateDAO.all().forEach(mr -> defaultTableModel.addRow(new Object[]{mr.getYear(), 
+        mortalityRateDAO.all().forEach(mr -> defaultTableModel.addRow(new Object[]{
+            mr.getYear(), 
             mr.getDepartment(), 
             mr.getGender(), 
             mr.getDisease(), 
