@@ -12,10 +12,8 @@ public class TestDB {
         
         
         
-        DepartmentDAO departmentDAO = new DepartmentDAO();
-        GenderDAO genderDAO = new GenderDAO();
-        DiseaseDAO diseaseDAO = new DiseaseDAO();
-        diseaseDAO.all().forEach(System.out::println);
+        MortalityRateDAO mortalityRateDAO = new MortalityRateDAO();
+        mortalityRateDAO.all().forEach(System.out::println);
         
       
         
