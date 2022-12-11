@@ -12,6 +12,11 @@ public class ConnectionDefault {
     private final String USER="freedb_mquinam";
     private final String PASS="PfV2j?HGm56JJW%";
     
+    /*private final String DB="bd_health_data";
+    private final String URL="jdbc:mysql://127.0.0.1/"+DB+"?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";;
+    private final String USER="root";
+    private final String PASS="";*/
+ 
     public Connection openConnection() {
         
         Connection connect = null;
