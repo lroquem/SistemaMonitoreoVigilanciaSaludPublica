@@ -23,9 +23,6 @@ public class Principal extends javax.swing.JFrame {
         //this.setResizable(false);
         //this.setExtendedState(Principal.MAXIMIZED_BOTH);
         consultData();
-        
-
-        
     }
 
     /**
@@ -177,13 +174,14 @@ public class Principal extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new Principal().setVisible(true);
             }
         });
     }
     
-    public void consultData() {
+    final public void consultData() {
         defaultTableModel = (DefaultTableModel) tblDatos.getModel();
         MortalityRateDAO mortalityRateDAO = new MortalityRateDAO();
         

@@ -1,5 +1,6 @@
 package com.sistemamonitoreovigilanciasaludpublica.pe;
-
+// POR FALTA DE ACCESO A LA DDBB SE USARA UN ARCHIVO CSV PARA LEER LOS DATOS
+/*
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -48,6 +49,36 @@ public class MortalityRateDAO {
         } catch (SQLException e) {
             System.out.println(e.toString());
         }
+        return listMortalityRates;
+    }
+}
+*/
+
+// EMPEZAMOS CON LA LECTURA DE DATOS DESDE CSV
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class MortalityRateDAO{
+    public List<MortalityRate> all(){
+        List<MortalityRate> listMortalityRates = new ArrayList<>();
+        
+        File file = new File("D:\\eclipse-workspace\\SistemaMonitoreoVigilanciaSaludPublica\\doc\\data.csv");
+        try {
+            Scanner inputStream = new Scanner(file);
+            while(inputStream.hasNext()){
+                String data = inputStream.next();
+                
+                MortalityRate mortalityRate = new MortalityRate();
+                System.out.println(data+"*********");
+            }
+            inputStream.close();
+        } catch (FileNotFoundException e) {
+        }
+        
         return listMortalityRates;
     }
 }
